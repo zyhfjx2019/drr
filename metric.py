@@ -28,7 +28,7 @@ def make_metric_dict():
     return { 'p@5':0, 'p@10':0, 'p@1':0, 'map@5':0, 'map@10':0, 'map@30':0 }
 
 def main():
-    metric_keys = [ 'p@1', 'p@5', 'p@10', 'map@5', 'map@10', 'map@30' ]
+    metric_keys = [ 'p@5', 'p@10', 'map@5', 'map@10', 'map@30' ]
     filename = sys.argv[1]
     print "calc metric from %s" % filename
     f = file(filename)
@@ -44,7 +44,6 @@ def main():
         for i in range(n):
             if not d.has_key(i):
                 d[i] = make_metric_dict()
-            d[i]['p@1'] += calc_precision_at_k(step_labels[i], 1)
             d[i]['p@5'] += calc_precision_at_k(step_labels[i], 5)
             d[i]['p@10'] += calc_precision_at_k(step_labels[i], 10)
             d[i]['map@5'] += calc_average_precision_at_k(step_labels[i], 5)
