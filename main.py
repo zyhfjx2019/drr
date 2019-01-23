@@ -156,7 +156,7 @@ def get_features(uid_batch, ucf_batch, icf_batch, pv_batch, iv_batch, batch_size
 
 def input_generator(filename, batch_size, seq_len, repeat_cnt=-1):
     print("data_set={0} batch_size={1} seq_len={2} repeat_cnt={3} for input_generator".format(filename, batch_size, seq_len, repeat_cnt))
-    dataset = tf.contrib.data.CsvDataset([filename], record_defaults=[0,"","","","",""], field_delim='\t').repeat(repeat_cnt).batch(batch_size)
+    dataset = tf.contrib.data.CsvDataset([filename], record_defaults=[0,"","","","",""], field_delim='|').repeat(repeat_cnt).batch(batch_size)
     next_val = dataset.make_one_shot_iterator().get_next()
     with K.get_session().as_default() as sess:
         while True:
