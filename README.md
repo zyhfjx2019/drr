@@ -1,5 +1,5 @@
 # drr
-code for the paper "Personalized Context-Aware Re-ranking for E-commerce Recommendation Systems"
+code for the paper "Personalized Re-ranking for E-commerce Recommendation Systems"
 
 # dataset  
 ## the toy data for training/validation/test
