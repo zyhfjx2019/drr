@@ -1,7 +1,6 @@
 #! -*- coding: utf-8 -*-
 from __future__ import absolute_import, division, print_function
 
-import absl.flags
 # import tensorflow as tf
 from drr_model import *
 
@@ -231,7 +230,7 @@ def train():
     print("training....")
     if not os.path.exists(r".\logs"):
         os.mkdir(r".\logs")
-        print("create log directory:{0}".format(".\logs"))
+        print("create log directory:{0}".format(r".\logs"))
     model = get_model()
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     assert FLAGS.train_set != ""
