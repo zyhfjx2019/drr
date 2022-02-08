@@ -32,7 +32,7 @@ class LayerNormalization(Layer):
                                     initializer=Zeros(), trainable=True)
         super(LayerNormalization, self).build(input_shape)
 
-    def call(self, x):
+    def call(self, x, *args, **kwargs):
         mean = K.mean(x, axis=-1, keepdims=True)
         std = K.std(x, axis=-1, keepdims=True)
         return self.gamma * (x - mean) / (std + self.eps) + self.beta
